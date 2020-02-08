@@ -6,7 +6,7 @@ import Card from "./components/Card";
 // https://swapi.co/api/people/
 
 const App = () => {
-  const [starWarsData, setStarWarsData] = useState({});
+  const [starWarsData, setStarWarsData] = useState([]);
 
   const dataGetter = () => {
     axios
@@ -21,9 +21,14 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">
-        We have {starWarsData.count} Star Wars characters!
+        Page 1 has {starWarsData.count} Star Wars characters!
       </h1>
-      <Card />
+
+      {starWarsData.results
+        ? starWarsData.results.map(starWar => (
+            <Card key={starWar.name} starWar={starWar} />
+          ))
+        : null}
     </div>
   );
 };
