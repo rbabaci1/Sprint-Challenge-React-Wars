@@ -7,7 +7,6 @@ export default function Card() {
     <div>
       <CardName />
       <CardInfo />
-      <hello>hrhhr</hello>
     </div>
   );
 }
