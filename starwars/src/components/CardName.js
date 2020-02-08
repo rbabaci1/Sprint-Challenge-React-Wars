@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function CardName() {
+export default function CardName({ charName }) {
   return (
     <div>
-      <h1>Name</h1>
+      <h1>{charName}</h1>
     </div>
   );
 }
