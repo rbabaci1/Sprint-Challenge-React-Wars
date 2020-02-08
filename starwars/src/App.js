@@ -6,6 +6,9 @@ import styled from "styled-components";
 
 const CardWrapper = styled.div`
   display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 40px;
 `;
 
 const App = () => {
@@ -14,26 +17,23 @@ const App = () => {
   const dataGetter = () => {
     axios
       .get(`https://swapi.co/api/people/`)
-      .then(response => setStarWarsData(response.data))
+      .then(response => {
+        setStarWarsData(response.data);
+      })
       .catch(error => console.error(error));
   };
   useEffect(dataGetter, []);
 
   return (
     <div className="App">
-      <h1 className="Header">
-        Page 1 has {starWarsData.count} Star Wars characters!
-      </h1>
+      <h1 className="Header">Page 1</h1>
 
       <CardWrapper>
-        {/* {starWarsData.results
+        {starWarsData.results
           ? starWarsData.results.map(starWar => (
               <Card key={starWar.name} starWar={starWar} />
             ))
-          : null} */}
-        {starWarsData.results ? (
-          <Card starWar={starWarsData.results[0]} />
-        ) : null}
+          : null}
       </CardWrapper>
     </div>
   );

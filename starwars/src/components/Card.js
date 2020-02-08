@@ -9,6 +9,7 @@ const CardDiv = styled.div`
   width: 400px;
   border-radius: 7px;
   background: rgba(143, 146, 141, 0.6);
+  margin: 10px;
 `;
 const Image = styled.img`
   width: 90%;
