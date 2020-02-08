@@ -10,15 +10,19 @@ const App = () => {
 
   const dataGetter = () => {
     axios
-      .get(`https://swapi.co/api/people`)
-      .then(response => console.log(response))
+      .get(`https://swapi.co/api/people/`)
+      .then(response => setStarWarsData(response.data))
       .catch(error => console.error(error));
   };
+  console.log(starWarsData);
 
-  useEffect();
+  useEffect(dataGetter, []);
+
   return (
     <div className="App">
-      <h1 className="Header">React Wars</h1>
+      <h1 className="Header">
+        We have {starWarsData.count} Star Wars characters!
+      </h1>
       <Card />
     </div>
   );
