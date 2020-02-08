@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const NameDiv = styled.div`
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid #555353;
 
   h1 {
     margin: 10px 0;
@@ -11,8 +11,7 @@ const NameDiv = styled.div`
     color: #555050;
 
     span {
-      font-weight: bold;
-      color: black;
+      color: #6f5f50;
     }
   }
 `;
