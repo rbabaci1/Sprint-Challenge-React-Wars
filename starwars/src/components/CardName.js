@@ -5,7 +5,7 @@ const NameDiv = styled.div`
   border-bottom: 2px solid #555353;
 
   h1 {
-    margin: 10px 0;
+    margin: 20px 0;
     font-size: 24px;
     font-family: Monaco;
 

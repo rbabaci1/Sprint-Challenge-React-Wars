@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./App.css";
 import Card from "./components/Card";
 import styled from "styled-components";
 
+const AppDiv = styled.div`
+  text-align: center;
+`;
 const CardWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -35,11 +37,11 @@ const App = () => {
     `https://swapi.co/api/people/?page=${pageNum}`
   );
 
-  const pageClickHandler = e => {
-    if (starWarsData.previous && e.target.innerHTML === "\u2b05") {
+  const pageClickHandler = event => {
+    if (starWarsData.previous && event.target.innerHTML === "\u2b05") {
       setPageUrl(starWarsData.previous);
       setPageNum(pageNum - 1);
-    } else if (starWarsData.next && e.target.innerHTML === "\u27a1") {
+    } else if (starWarsData.next && event.target.innerHTML === "\u27a1") {
       setPageUrl(starWarsData.next);
       setPageNum(pageNum + 1);
     }
@@ -56,7 +58,7 @@ const App = () => {
   useEffect(dataGetter, [pageUrl]);
 
   return (
-    <div className="App">
+    <AppDiv>
       <PageChanging onClick={pageClickHandler}>
         <span>{"\u2b05"}</span>
         <h2>Page {pageNum}</h2>
@@ -70,7 +72,7 @@ const App = () => {
             ))
           : null}
       </CardWrapper>
-    </div>
+    </AppDiv>
   );
 };
 
