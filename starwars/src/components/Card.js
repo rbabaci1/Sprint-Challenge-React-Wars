@@ -5,8 +5,7 @@ import styled from "styled-components";
 
 const CardDiv = styled.div`
   padding: 15px;
-  background: gold;
-  width: 440px;
+  width: 435px;
   height: 100%;
   border-radius: 7px;
   background: rgba(143, 146, 141, 0.6);
