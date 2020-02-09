@@ -14,6 +14,7 @@ const CardDiv = styled.div`
 `;
 const Image = styled.img`
   width: 90%;
+  border: 2px solid #7a2e10;
 `;
 
 export default function Card({ starWar }) {

@@ -6,12 +6,11 @@ const NameDiv = styled.div`
 
   h1 {
     margin: 10px 0;
-    font-size: 25px;
+    font-size: 24px;
     font-family: Monaco;
-    color: #555050;
 
     span {
-      color: #6f5f50;
+      color: #7a2e10;
     }
   }
 `;

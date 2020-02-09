@@ -17,11 +17,14 @@ const PageChanging = styled.div`
   padding-top: 20px;
 
   span {
-    font-size: 40px;
+    font-size: 36px;
     cursor: pointer;
   }
   h2 {
     margin: 0 30px;
+    font-size: 26px;
+    font-family: Monaco;
+    border-radius: 5px;
   }
 `;
 
@@ -32,7 +35,7 @@ const App = () => {
     `https://swapi.co/api/people/?page=${pageNum}`
   );
 
-  const pageHandler = e => {
+  const pageClickHandler = e => {
     if (starWarsData.previous && e.target.innerHTML === "\u2b05") {
       setPageUrl(starWarsData.previous);
       setPageNum(pageNum - 1);
@@ -54,7 +57,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <PageChanging onClick={pageHandler}>
+      <PageChanging onClick={pageClickHandler}>
         <span>{"\u2b05"}</span>
         <h2>Page {pageNum}</h2>
         <span>{"\u27a1"}</span>

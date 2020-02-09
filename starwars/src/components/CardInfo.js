@@ -12,10 +12,12 @@ const InfoDiv = styled.div`
     margin: 8px auto;
 
     h3 {
-      color: #613e12;
+      color: #7a2e10;
       font-family: monospace;
       font-size: 20px;
       padding: 5px;
+      border-bottom: 1px solid;
+      border-right: 1px solid;
     }
   }
 `;
@@ -27,7 +29,7 @@ export default function CardInfo({ character }) {
 
   return (
     <div>
-      <Button onClick={toggle} style={{ margin: "1rem" }}>
+      <Button onClick={toggle} style={{ margin: "1rem", fontSize: "17px" }}>
         More Info
       </Button>
       <Collapse isOpen={isOpen}>
