@@ -10,10 +10,23 @@ const CardWrapper = styled.div`
   flex-wrap: wrap;
   margin-top: 40px;
 `;
+const PageChanging = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+
+  span {
+    font-size: 40px;
+  }
+  h2 {
+    margin: 0 30px;
+  }
+`;
 
 const App = () => {
   const [starWarsData, setStarWarsData] = useState([]);
-  const [pageNumber, setPageNumber] = useState(1);
+  const [pageNumber, setPageNumber] = useState(9);
 
   const dataGetter = () => {
     axios
@@ -27,7 +40,11 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="Header">Page 1</h1>
+      <PageChanging>
+        <span>{"\u2b05"}</span>
+        <h2>Page {pageNumber}</h2>
+        <span>{"\u27a1"}</span>
+      </PageChanging>
 
       <CardWrapper>
         {starWarsData.results
