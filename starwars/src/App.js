@@ -18,6 +18,7 @@ const PageChanging = styled.div`
 
   span {
     font-size: 40px;
+    cursor: pointer;
   }
   h2 {
     margin: 0 30px;
@@ -26,23 +27,36 @@ const PageChanging = styled.div`
 
 const App = () => {
   const [starWarsData, setStarWarsData] = useState([]);
-  const [pageNumber, setPageNumber] = useState(9);
+  const [pageNum, setPageNum] = useState(1);
+  const [pageUrl, setPageUrl] = useState(
+    `https://swapi.co/api/people/?page=${pageNum}`
+  );
+
+  const pageHandler = e => {
+    if (starWarsData.previous && e.target.innerHTML === "\u2b05") {
+      setPageUrl(starWarsData.previous);
+      setPageNum(pageNum - 1);
+    } else if (starWarsData.next && e.target.innerHTML === "\u27a1") {
+      setPageUrl(starWarsData.next);
+      setPageNum(pageNum + 1);
+    }
+  };
 
   const dataGetter = () => {
     axios
-      .get(`https://swapi.co/api/people/?page=${pageNumber}`)
+      .get(pageUrl)
       .then(response => {
         setStarWarsData(response.data);
       })
       .catch(error => console.error(error));
   };
-  useEffect(dataGetter, []);
+  useEffect(dataGetter, [pageUrl]);
 
   return (
     <div className="App">
-      <PageChanging>
+      <PageChanging onClick={pageHandler}>
         <span>{"\u2b05"}</span>
-        <h2>Page {pageNumber}</h2>
+        <h2>Page {pageNum}</h2>
         <span>{"\u27a1"}</span>
       </PageChanging>
 
