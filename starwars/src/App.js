@@ -13,10 +13,11 @@ const CardWrapper = styled.div`
 
 const App = () => {
   const [starWarsData, setStarWarsData] = useState([]);
+  const [pageNumber, setPageNumber] = useState(1);
 
   const dataGetter = () => {
     axios
-      .get(`https://swapi.co/api/people/`)
+      .get(`https://swapi.co/api/people/?page=${pageNumber}`)
       .then(response => {
         setStarWarsData(response.data);
       })

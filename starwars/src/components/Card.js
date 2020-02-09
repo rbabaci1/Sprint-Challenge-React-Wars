@@ -7,6 +7,7 @@ const CardDiv = styled.div`
   padding: 15px;
   background: gold;
   width: 440px;
+  height: 100%;
   border-radius: 7px;
   background: rgba(143, 146, 141, 0.6);
   margin: 10px;
