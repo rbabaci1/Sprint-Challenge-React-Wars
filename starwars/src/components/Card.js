@@ -20,7 +20,12 @@ export default function Card({ starWar }) {
   return (
     <CardDiv>
       <Image src="https://cdn.pixabay.com/photo/2017/07/25/22/54/office-2539844_1280.jpg" />
-      <CardName charName={starWar.name} />
+      <CardName
+        charName={starWar.name}
+        age={18}
+        arr={[1, 3, 7]}
+        arrOfObj={[{ name: "rab", age: 25 }]}
+      />
       <CardInfo character={starWar} />
     </CardDiv>
   );
